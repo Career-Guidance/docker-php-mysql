@@ -17,7 +17,7 @@ getenv('MYSQL_DBPASS') ? $db_pass=getenv('MYSQL_DBPASS') : $db_pass="";
 getenv('MYSQL_DBNAME') ? $db_name=getenv('MYSQL_DBNAME') : $db_name="";
 
 if (strlen( $db_name ) === 0)
-  $conn = mysqli_connect("mysql", "root", "secret");
+  $conn = mysqli_connect("$db_host:$db_port", $db_user, $db_pass);
 else 
   $conn = new mysqli("$db_host:$db_port", $db_user, $db_pass, $db_name);
 
